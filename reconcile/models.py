@@ -30,7 +30,7 @@ class Register(models.Model):
     debit_account = models.CharField(max_length=100, default="")
     credit_account = models.CharField(max_length=100, default="")
     description = models.TextField(max_length=100)
-    value = models.DecimalField(max_digits=10, decimal_places=2)
+    value = models.DecimalField(max_digits=10, decimal_places=2, default=0.00)
     register_type = models.TextField(
         choices=RegisterType,
         null=True
