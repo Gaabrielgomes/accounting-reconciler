@@ -22,14 +22,18 @@ def reconcile_manual_add(request):
 
     return render(request, "pages/reconcile_manual_add.html", {"form": form})
 
+
 def reconcile_text_add(request):
-    form = TextAddForm()
-
     if request.method == "POST":
-        form = TextAddForm(request.POST)
+        form = TextAddForm(request.POST, request.FILES)
         if form.is_valid():
-            text = form.cleaned_data["text"]
+            uploaded_file = form.cleaned_data["file"]
 
-            print(text)
+            # Exemplo: ler conteúdo do arquivo
+            content = uploaded_file.read().decode("utf-8")
+            print(content)
+
+    else:
+        form = TextAddForm()
 
     return render(request, "pages/reconcile_text_add.html", {"form": form})

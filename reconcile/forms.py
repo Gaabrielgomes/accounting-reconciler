@@ -9,4 +9,10 @@ class ManualAddForm(forms.Form):
     document = forms.FileField(label='Select a file')
 
 class TextAddForm(forms.Form):
-    text = forms.FileField(label="Choose the text file")
+    file = forms.FileField(
+        label="Selecione um arquivo de texto",
+        widget=forms.ClearableFileInput(attrs={
+            "class": "form-input",
+            "accept": ".txt"
+        })
+    )
