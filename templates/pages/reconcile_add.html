@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block title %}Add{% endblock %}
+
+{% block content %}
+    <h1>Adicionar Pessoa</h1>
+
+    <form method="post" class="form-box">
+        {% csrf_token %}
+        
+        <div class="form-group">
+            {{ form.name.label_tag }}
+            {{ form.name }}
+        </div>
+
+        <div class="form-group">
+            {{ form.document.label_tag }}
+            {{ form.document }}
+        </div>
+
+        <button type="submit" class="submit-btn">
+            Salvar
+        </button>
+    </form>
+{% endblock %}
