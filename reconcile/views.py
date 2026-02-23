@@ -1,12 +1,35 @@
 from django.shortcuts import render
-from django.http import HttpResponse
+from .forms import ReconcileForm, ManualAddForm, TextAddForm
 
 # Create your views here.
 def reconcile_home(request):
     variables = {
-        "name":"name"
+        "form": ReconcileForm()
     }
-    return render(request, 'reconcile/home.html', variables)
+    return render(request, 'pages/reconcile_home.html', variables)
 
-def reconcile_add(request):
-    return HttpResponse('Reconcile add')
+
+def reconcile_manual_add(request):
+    form = ManualAddForm()
+
+    if request.method == "POST":
+        form = ManualAddForm(request.POST)
+        if form.is_valid():
+            name = form.cleaned_data["name"]
+            document = form.cleaned_data["document"]
+
+            print(name, document)  # depois você salva no banco
+
+    return render(request, "pages/reconcile_manual_add.html", {"form": form})
+
+def reconcile_text_add(request):
+    form = TextAddForm()
+
+    if request.method == "POST":
+        form = TextAddForm(request.POST)
+        if form.is_valid():
+            text = form.cleaned_data["text"]
+
+            print(text)
+
+    return render(request, "pages/reconcile_text_add.html", {"form": form})
