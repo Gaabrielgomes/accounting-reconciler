@@ -1,0 +1,7 @@
+[project]
+name = "accounting-reconciler"
+version = "0.1.0"
+dependencies = [
+    "django",
+    "psycopg[binary]"
+]

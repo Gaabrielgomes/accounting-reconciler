@@ -13,8 +13,3 @@
 > Once you have the data tables ready, run the main program. First, select the table that represents the most recent period, then select the oldest one
 
 ---
-
-##### Libraries used
-- Django
-- Sqlalchemy
-- Pandas
