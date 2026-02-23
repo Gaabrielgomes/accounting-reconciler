@@ -22,5 +22,5 @@ from . import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('reconcile/', include("reconcile.urls")),
-    path('', views.index_view)
+    path('', views.home_view, name='home')
 ]
