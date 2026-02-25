@@ -1,23 +1,7 @@
 from django.db import models
 
 
-class Client(models.Model):
-    
-    id = models.AutoField(serialize=True, primary_key=True)
-    name = models.CharField(max_length=100)
-    register_date = models.DateField()
-    cpf_cnpj = models.IntegerField(null=True, blank=True)
-
-
 # Create your models here.
-class Supplier(models.Model):
-    
-    id = models.AutoField(serialize=True, primary_key=True)
-    associated_company = models.IntegerField()
-    name = models.CharField(max_length=100)
-    cpf_cnpj = models.IntegerField(null=True, blank=True)
-
-
 class Register(models.Model):
     
     class RegisterType(models.TextChoices):
