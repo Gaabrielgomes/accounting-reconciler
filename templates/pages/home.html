@@ -1,8 +1,25 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
 
-{% block title %}Home{% endblock %}
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
 
-{% block content %}
-    <h1>Accounting Reconciler</h1>
-    <button type="button">START</button>
-{% endblock %}
+    <div class="bg-white p-10 rounded-2xl shadow-xl text-center w-full max-w-lg">
+        
+        <h1 class="text-4xl font-bold mb-8 text-gray-800">
+            Accounting Reconciler
+        </h1>
+
+        <a href="{% url 'reconcile:reconcile_home' %}"
+           class="inline-block bg-blue-600 hover:bg-blue-700 transition text-white px-8 py-3 rounded-xl text-lg font-semibold shadow-md">
+            START
+        </a>
+
+    </div>
+
+</body>
+</html>

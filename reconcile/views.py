@@ -6,7 +6,7 @@ def reconcile_home(request):
     return render(request, 'pages/reconcile_home.html', {'form': ReconcileForm()})
 
 
-def process_file(request):
+def reconcile_process(request):
     if request.method == 'POST':
         form = ReconcileForm(request.POST, request.FILES)
 
@@ -14,8 +14,12 @@ def process_file(request):
             uploaded_file = form.cleaned_data['file']
             return render(
                 request,
-                  'pages/process_file.html',
+                  'pages/reconcile_process.html',
                     {'file_name': uploaded_file.name}
             )
     else:
         return render(request, 'pages/reconcile_home.html', {'form': ReconcileForm()})
+    
+
+def reconcile_results(request):
+    return render(request, 'pages/reconcile_results.html')

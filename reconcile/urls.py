@@ -6,6 +6,6 @@ app_name = "reconcile"
 
 urlpatterns = [
     path('', views.reconcile_home, name="reconcile_home"),
-    path('process/', views.process_file, name="reconcile_process_file"),
-    path('results/', views.results, name="reconcile_results")
+    path('process/', views.reconcile_process, name="reconcile_process"),
+    path('results/', views.reconcile_results, name="reconcile_results")
 ]
