@@ -20,8 +20,9 @@
                 <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                     <thead class="bg-gray-200">
                         <tr>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Name</th>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Document</th>
+                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Invoice</th>
+                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Value</th>
+                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Earliest Date</th>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Status</th>
                         </tr>
                     </thead>
@@ -29,10 +30,11 @@
 
                         {% for row in results %}
                         <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.name }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.document }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.invoice }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.value }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.earliest_date }}</td>
                             <td class="px-4 py-2 text-sm font-semibold 
-                                {% if row.status == 'OK' %}
+                                {% if row.status == 'ZEROED' %}
                                     text-green-600
                                 {% else %}
                                     text-red-600
