@@ -9,8 +9,19 @@
 <body class="bg-gray-100 min-h-screen">
 
     <main class="p-8">
+        <div class="bg-white rounded-2xl shadow-lg p-5 relative">
 
-        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <div class="mt-1 mb-2 flex gap-4 justify-center">
+                <a href="{% url 'reconcile:export_csv' %}"
+                    class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
+                        Export to CSV
+                </a>
+
+                <a href="{% url 'reconcile:process_again' %}"
+                    class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-6 rounded-lg transition duration-200 ease-in-out transform hover:scale-105">
+                        Process again
+                </a>
+            </div>
 
             <h2 class="text-2xl font-bold mb-6 text-gray-800">
                 Reconciling results
@@ -20,7 +31,7 @@
                 <table class="min-w-full border border-gray-200 rounded-lg overflow-hidden">
                     <thead class="bg-gray-200">
                         <tr>
-                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Invoice</th>
+                            <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Company Id</th>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Value</th>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Earliest Date</th>
                             <th class="px-4 py-2 text-left text-sm font-semibold text-gray-700">Status</th>
@@ -30,14 +41,14 @@
 
                         {% for row in results %}
                         <tr class="hover:bg-gray-50">
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.invoice }}</td>
-                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.value }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-700">{{ row.company_id }}</td>
+                            <td class="px-4 py-2 text-sm text-gray-700">R$ {{ row.total_value }}</td>
                             <td class="px-4 py-2 text-sm text-gray-700">{{ row.earliest_date }}</td>
                             <td class="px-4 py-2 text-sm font-semibold 
                                 {% if row.status == 'ZEROED' %}
-                                    text-green-600
+                                    text-green-500
                                 {% else %}
-                                    text-red-600
+                                    text-red-500
                                 {% endif %}
                             ">
                                 {{ row.status }}

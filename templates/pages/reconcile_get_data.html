@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Get data from period</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+
+    <div class="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md">
+
+        <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">
+            Set the initial and final date of the period
+        </h2>
+
+        <form method="POST">
+            {% csrf_token %}
+
+            <div class="mb-4">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    Initial date
+                </label>
+                <input 
+                    type="date" 
+                    name="start_date" 
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+            </div>
+
+            <div class="mb-6">
+                <label class="block text-sm font-semibold text-gray-700 mb-2">
+                    Final date
+                </label>
+                <input 
+                    type="date" 
+                    name="end_date" 
+                    required
+                    class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                >
+            </div>
+
+            <button 
+                type="submit"
+                class="w-full bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded-lg transition"
+            >
+                Get data
+            </button>
+        </form>
+
+    </div>
+
+</body>
+</html>
